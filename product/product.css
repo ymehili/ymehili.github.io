@@ -1,0 +1,356 @@
+@font-face {
+    font-family: 'madeinfinityblack';
+    src: url('../assets/MadeInfinityBlack.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'madeinfinityregular';
+    src: url('../assets/MadeInfinityRegular.otf') format('opentype');
+}
+
+body {
+    font-family: madeinfinityregular;
+    background-color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 5%;
+    position: sticky;
+    background-color: white;
+    top: 0;
+    z-index: 1000;
+    width:100%;
+}
+
+header h1 {
+    font-family: madeinfinityblack;
+    font-size: 30px;
+    color: black;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    border:none;
+    outline:none;
+    background-color:none;
+}
+
+a button {
+    text-decoration: none;
+    color: black;
+    background-color:white;
+    border:none;
+    outline:none;
+    background-color:none;
+}
+
+#cart-button {
+    align-items: right;
+    padding: 10px;
+    background-color: white;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#cart-button:hover {
+    transform: scale(1.1, 1.1);
+    z-index: 100;
+    color: rgb(30, 30, 30);
+}
+
+.cart-popup {
+    display: flex;
+    position: fixed;
+    top: 11%;
+    bottom: 0;
+    right: 5%;
+    border: 3px solid black;
+    width: 425px;
+    background-color: white;
+    overflow: auto;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    display: none;
+}
+
+.cart-popup.show {
+    transform: translateX(0);
+    display: block;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: row;;
+    border-bottom: grey 1px solid;
+    padding-bottom: 20px;
+}
+
+.cart-item img {
+    width: 40%;
+    object-fit: contain;
+    margin-right: 20px;
+    margin-left : 10px;
+}
+
+.cart-item-info {
+    margin-top: 0;;
+}
+
+.increase, .decrease {
+    font-family: madeinfinityregular;
+    font-size: 20px;
+    color: black;
+    margin-bottom: 0;
+    background-color: white;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.delete, .increase, .decrease{
+    background-color: white;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.delete:hover, .increase:hover, .decrease:hover {
+    transform: scale(1.1, 1.1);
+    z-index: 100;
+    color: rgb(30, 30, 30);
+}
+
+.cart-item-title {
+    font-family: madeinfinityblack;
+    font-size: 20px;
+    color: black;
+    margin-bottom: 0;
+}
+
+.cart-item-price {
+    font-family: madeinfinityblack;
+    font-size: 20px;
+    color: gray;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.cart-item-quantity {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    gap: 10px;
+}
+
+#checkout-button {
+    font-family: madeinfinityblack;
+    font-size: 20px;
+    color: white;
+    margin-bottom: 0;
+    background-color: black;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+    margin-top: 50px;
+}
+
+.checkout-popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+#checkout-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+}
+
+input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #888;
+    outline: none;
+}
+
+#checkout-form button {
+    font-family: madeinfinityblack;
+    font-size: 20px;
+    color: white;
+    margin-bottom: 0;
+    background-color: black;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#itemsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#item-image {
+    margin-left: 5%;
+    width: 40%;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+#text-container {
+    margin-top: 50px;
+    width: 40%;
+    margin-left: 100px;
+}
+
+.item-name {
+    font-family: madeinfinityblack;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 0;
+}
+
+.item-price {
+    font-family: madeinfinityblack;
+    font-size: 20px;
+    color: gray;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.addtocart {
+    font-family: madeinfinityblack;
+    font-size: 20px;
+    color: white;
+    margin-bottom: 0;
+    background-color: black;
+    width: 80%;
+    margin-left: 5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+    margin-top: 50px;
+}
+
+.addtocart:hover {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.01, 1.01);
+    z-index: 100;
+    background-color: rgb(30, 30, 30);
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 5%;
+    padding-left: 5%;
+}
+
+.about {
+    width: 30%;
+    padding-right: 10%;
+}
+
+.contact {
+    width: 30%;
+}
+
+.info {
+    width: 30%;
+}
+
+.info h3, .about h3, .contact h3 {
+    font-family: madeinfinityblack;
+    font-size: 20px;
+    color: black;
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 425px) {
+    #item-image {
+        width: 100%;
+        margin: 0;
+    }
+    .item-box {
+        width: 100%;
+    }
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about, .contact, .info {
+        width: 100%;
+        padding-right: 0;
+    }
+    #item-image {
+        width: 100%;
+    }
+    #text-container {
+        width: 100%;
+        margin-top: 0;
+        padding-left: 0;
+        margin-left: 0;
+    }
+    .addtocart {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 10%;
+        margin-top: 0;
+    }
+    .cart-popup {
+        width: 90%;
+        height: 100%;
+        max-width: 425px;
+        top: 12%;
+        left: 0;
+        right: 0;
+        border: none;
+    }
+    #checkout-form {
+        width: 70%;
+        max-width: 425px;
+    }
+}
